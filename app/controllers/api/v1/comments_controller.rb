@@ -1,7 +1,7 @@
-class Api::V1::PostsController < ApplicationController 
+class Api::V1::CommentsController < ApplicationController 
   skip_before_filter :verify_authenticity_token 
   respond_to :json 
-  
+
   def index 
     respond_with(Post.all.order("id DESC"))
   end 
@@ -31,7 +31,7 @@ class Api::V1::PostsController < ApplicationController
   def destroy 
     respond_with Post.destroy(params[:id]) 
   end 
-
+  
   private 
     def todo_params 
       params.require(:post).permit(:title, :content, :user_id) 
