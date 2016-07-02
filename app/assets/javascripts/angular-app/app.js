@@ -22,11 +22,43 @@ app.config(function($stateProvider, $urlRouterProvider) {
         });
       }]
     })
+    .state('logout', {
+      url: '/logout',
+      controller: function($state, Auth) {
+        Auth.logout().then(function(oldUser) {
+          $state.go('login');
+        });
+      },
+      data: {
+        requireLogin: false,
+      }
+    })
     .state('home', {
       url: '/home',
       templateUrl: 'home.html',
-      controller: 'HomeController as ctrl'
+      controller: 'HomeController as ctrl',
+      resolve: {
+        posts: function (PostService) {
+          return PostService.getAllPosts();
+        }
+      }
+    })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'profile.html',
+      controller: 'ProfileController as ctrl'
     })
 
     $urlRouterProvider.otherwise('login');
+});
+
+app.run(function ($rootScope, $state) {
+    $rootScope.navbar = false;
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        if (toState.name === 'login' || toState.name === 'register') {//toState variable see the state you're going 
+            $rootScope.navbar = false;
+        } else {
+            $rootScope.navbar = true;
+        }
+    });
 });

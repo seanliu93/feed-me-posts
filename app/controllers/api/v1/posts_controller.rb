@@ -1,27 +1,28 @@
 class Api::V1::PostsController < ApplicationController 
   skip_before_filter :verify_authenticity_token 
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   respond_to :json 
   
   def index 
-    respond_with(Post.all.order("id DESC"))
+    @posts = Post.all
+    render json: @posts
   end 
 
   def show 
-    respond_with(Post.find(params[:id]))
+    render json: @post
   end 
 
   def create 
-    @note = Post.new(note_params) 
-    if @note.save 
+    @post = Post.new(post_params) 
+    if @post.save 
       respond_to do |format|
-        format.json { render :json => @note }
+        format.json { render :json => @post }
       end 
     end 
   end 
 
   def update 
-    @note = Post.find(params[:id])
-    if @note.update(note_params) 
+    if @post.update(post_params) 
       respond_to do |format| 
         format.json { render :json => @note }
       end 
@@ -29,11 +30,15 @@ class Api::V1::PostsController < ApplicationController
   end 
 
   def destroy 
-    respond_with Post.destroy(params[:id]) 
+    @post.destroy
   end 
 
   private 
-    def todo_params 
+    def post_params 
       params.require(:post).permit(:title, :content, :user_id) 
     end 
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
 end 

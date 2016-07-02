@@ -1,29 +1,29 @@
 class Api::V1::CommentsController < ApplicationController 
   skip_before_filter :verify_authenticity_token 
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :json 
 
   def index 
-    respond_with(Post.all.order("id DESC"))
+    @comments = Comment.all
   end 
 
   def show 
-    respond_with(Post.find(params[:id]))
+    respond_with(Comment.find(params[:id]))
   end 
 
   def create 
-    @note = Post.new(note_params) 
-    if @note.save 
+    @comment = Comment.new(comment_params) 
+    if @comment.save 
       respond_to do |format|
-        format.json { render :json => @note }
+        format.json { render :json => @comment }
       end 
     end 
   end 
 
   def update 
-    @note = Post.find(params[:id])
-    if @note.update(note_params) 
+    if @comment.update(comment_params) 
       respond_to do |format| 
-        format.json { render :json => @note }
+        format.json { render :json => @comment }
       end 
     end 
   end 
@@ -33,7 +33,11 @@ class Api::V1::CommentsController < ApplicationController
   end 
   
   private 
-    def todo_params 
-      params.require(:post).permit(:title, :content, :user_id) 
+    def comment_params 
+      params.require(:comment).permit(:content, :user_id, :post_id) 
     end 
+
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
 end 

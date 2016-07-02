@@ -1,3 +1,14 @@
-<div class="angular-view-container" ui-view>
-
+<div ng-show="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <h4>Welcome to FeedMePosts</h4>
+      <ul class="nav nav-pills">
+        <li role="presentation" ui-sref-active="active"><a ui-sref="home" href="#">Home</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="post" href="#">Create Post</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="profile" href="#">Profile</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="logout" href="#">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
 </div>
+<div ui-view></div>

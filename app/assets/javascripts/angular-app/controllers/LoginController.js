@@ -1,6 +1,6 @@
 app.controller('LoginController', LoginController);
 
-function LoginController($scope, $state, Auth) {
+function LoginController($state, Auth) {
   var ctrl = this;
   ctrl.login = function() {
     Auth.login(ctrl.user).then( function() {
@@ -11,10 +11,16 @@ function LoginController($scope, $state, Auth) {
   };
 
   ctrl.register = function() {
-    Auth.register($scope.user).then(function() {
-      $state.go('trailster')
+    Auth.register(ctrl.user).then(function() {
+      $state.go('home')
     }, function (error) {
       ctrl.errormsg = "That email has already been registered. Please try a different email."
     });
+  }
+
+  ctrl.logout = function() {
+    Auth.logout().then(function() {
+      $state.go('login')
+    })
   }
 }
