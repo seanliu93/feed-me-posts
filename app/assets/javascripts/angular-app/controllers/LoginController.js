@@ -2,9 +2,8 @@ app.controller('LoginController', LoginController);
 
 function LoginController($state, Auth) {
   var ctrl = this;
-  ctrl.login = function() {
-    console.log(ctrl.form)
-    if (!(ctrl.user.email.error || ctrl.user.password.error)) {
+  ctrl.login = function(loginForm) {
+    if (loginForm.$valid) {
       Auth.login(ctrl.user).then( function() {
         $state.go('home.posts');
       }, function (error) {
@@ -14,12 +13,14 @@ function LoginController($state, Auth) {
 
   };
 
-  ctrl.register = function() {
-    Auth.register(ctrl.user).then(function() {
-      $state.go('home.posts')
-    }, function (error) {
-      ctrl.errormsg = "That email has already been registered. Please try a different email."
-    });
+  ctrl.register = function(registerForm) {
+    if (registerForm.$valid) {
+      Auth.register(ctrl.user).then(function() {
+        $state.go('home.posts')
+      }, function (error) {
+        ctrl.errormsg = "That email has already been registered. Please try a different email."
+      }); 
+    }
   }
 
   ctrl.logout = function() {

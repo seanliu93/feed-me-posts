@@ -9,9 +9,8 @@ function ShowPostController(PostService, CommentService, $stateParams, Auth) {
   // get post
   PostService.getPost($stateParams.id).then(function(resp) {
     ctrl.post = resp.data;
-    console.log("GOT THE POST")
-    console.log(resp.data)
   });
+
 
 
   ctrl.createComment = function(commentForm) {
@@ -19,15 +18,15 @@ function ShowPostController(PostService, CommentService, $stateParams, Auth) {
       ctrl.comment.user_id = ctrl.user.id;
       ctrl.comment.post_id = ctrl.post.id;
       CommentService.createComment(ctrl.comment).then(function(resp) {
-        console.log("COMMENT CREATED")
-        ctrl.comment.content = "";
+        ctrl.comment.content = ""
+        ctrl.notification = "Comment submitted!"
+        // refresh post data
         PostService.getPost($stateParams.id).then(function(resp) {
           ctrl.post = resp.data;
-          console.log("GOT THE POST")
-          console.log(resp.data)
         });
       });
     }
-  };
+  }
+  
 
 }
