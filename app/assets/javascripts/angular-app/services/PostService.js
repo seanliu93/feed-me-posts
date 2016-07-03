@@ -12,6 +12,10 @@ function PostService($http) {
     return $http.get('/api/v1/posts/' + id)
   }
 
+  ctrl.destroyPost = function(id) {
+    return $http.delete('/api/v1/posts/' + id)
+  }
+
 }
 
 angular

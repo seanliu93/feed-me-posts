@@ -1,14 +1,12 @@
 app.controller('PostsController', PostsController);
 
-function PostsController(PostService, Auth) {
+function PostsController(PostService, UserService,  Auth) {
   var ctrl = this;
 
   // get current user
-  ctrl.getUser = Auth.currentUser().then(function(user) {
+  Auth.currentUser().then(function(user) {
     ctrl.user = user;
   });
-
-  ctrl.getUser;
 
   PostService.getAllPosts().then(function(resp) {
     ctrl.posts = resp.data

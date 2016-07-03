@@ -35,3 +35,16 @@ textarea {
   -moz-box-sizing: border-box;    /* For Firefox                          */
   -webkit-box-sizing: border-box; /* For Safari                           */
 }
+
+.border {
+  border-bottom: solid;
+  padding-bottom: 10px;
+}
+
+post {
+  white-space: pre-wrap;
+}
+
+profilepost {
+  white-space: pre-wrap;
+}

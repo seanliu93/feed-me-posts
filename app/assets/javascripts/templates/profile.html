@@ -1,2 +1,8 @@
-<p>Hello Profile!</p>
-<p>{{ homeCtrl.test }}</p>
+<h4>{{ ctrl.user.email }}</h4><br>
+<h4 style="text-decoration: underline;">Posts Created by You</h4>
+<input class="form-control" ng-model="ctrl.search" placeholder="Search or Filter Posts..." style="float: right;"/>
+<div ng-repeat="post in ctrl.user.posts | filter: ctrl.search" class="border">
+  <profilepost data="post"></profilepost>
+  <a href="#" ui-sref="home.show_post({id: post.id})">View Comments</a>
+  <a href ng-click="ctrl.deletePost(post.id)" style="float: right;">Delete Post</a>
+</div>
