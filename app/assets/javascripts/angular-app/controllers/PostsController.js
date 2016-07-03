@@ -12,6 +12,10 @@ function PostsController(PostService, Auth) {
 
   PostService.getAllPosts().then(function(resp) {
     ctrl.posts = resp.data
+    for (var i = 0; i < ctrl.posts.length; i++) {
+      // format the time, strip off the part of the string after 'T'
+      ctrl.posts[i].time = ctrl.posts[i].created_at.split('T')[0]
+    }
   })
 
 }

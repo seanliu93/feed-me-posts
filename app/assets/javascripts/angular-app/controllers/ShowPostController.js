@@ -9,6 +9,8 @@ function ShowPostController(PostService, CommentService, $stateParams, Auth) {
   // get post
   PostService.getPost($stateParams.id).then(function(resp) {
     ctrl.post = resp.data;
+    // format the time
+    ctrl.post.time = resp.data.created_at.split('T')[0]
   });
 
 
