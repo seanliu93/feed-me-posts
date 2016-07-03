@@ -1,0 +1,12 @@
+<post data="ctrl.post"></post><br>
+<form role="form" name="commentForm">
+  <div class="form-group" style="width:100%;">
+    <textarea type="text" name="content" class="form-control" ng-model="ctrl.comment.content" cols="50" rows="5" style="width:100%;" required></textarea>
+    <div class="help-block with-errors"></div>
+    <button type="submit" class="btn btn-default" ng-click="ctrl.createComment(commentForm)">Write Comment</button>
+  </div>
+<h5>Comments</h5>
+<div ng-repeat="comment in ctrl.post.comments">
+  <p style="font-style: italic;">{{comment.user.email}} wrote...</p>
+  <p>{{comment.content}}</p>
+</div>

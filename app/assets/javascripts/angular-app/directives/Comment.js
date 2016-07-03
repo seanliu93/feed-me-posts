@@ -1,18 +1,18 @@
-function Post() {
+function Comment() {
   return {
-    templateUrl: 'directives/post.html',
+    templateUrl: 'directives/comment.html',
     scope: {},
     restrict: 'E',
     controller: function() {
-      var post = this;
+      var comment = this;
     },
     controllerAs: 'post',
     bindToController: {
-      data: '='
+      data: '=',
     }
   };
 }
 
 angular
     .module('app')
-    .directive('post', Post);
+    .directive('comment', Comment);

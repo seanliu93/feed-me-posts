@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults:{format: :json} do
     namespace :v1 do
       resources :posts
+      resources :comments
     end
   end
   # You can have the root of your site routed with "root"

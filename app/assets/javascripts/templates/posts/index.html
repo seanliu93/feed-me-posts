@@ -1,3 +1,4 @@
 <div ng-repeat="post in ctrl.posts">
   <post data='post'></post>
+  <a href="#" ui-sref="home.show_post({id: post.id})">View Comments</a>
 </div>

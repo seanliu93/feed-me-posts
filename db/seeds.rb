@@ -58,9 +58,53 @@ posts = [
 '
   }
 ]
+
+comments = [
+  {
+    user_id: 1,
+    post_id: 3,
+    content: 'This is content for a random comment!'
+  },
+  {
+    user_id: 2,
+    post_id: 3,
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices porttitor rutrum. Quisque venenatis risus mauris, at sollicitudin orci venenatis id. Duis ullamcorper nisi iaculis eros sodales, vitae porttitor felis viverra. Nam rhoncus odio quis justo molestie, et convallis nibh feugiat. Donec dapibus auctor tortor, quis maximus justo blandit at. Nullam finibus arcu at felis scelerisque fermentum. Vivamus at venenatis dui. Integer sed pharetra ex. Vivamus vel dictum velit. Phasellus sodales dui augue, vitae interdum nulla malesuada sed. Proin tincidunt blandit elit, a efficitur enim laoreet et. In hac habitasse platea dictumst. Phasellus id lacus eget tellus placerat ornare ut eget leo. Fusce gravida tincidunt dui, in malesuada metus pharetra vel. Etiam nec ligula euismod, vestibulum ligula eu, sagittis nulla.
+
+'},
+  {
+    user_id: 1,
+    post_id: 3,
+    content: 'Donec dapibus auctor tortor, quis maximus justo blandit at. Nullam finibus arcu at felis scelerisque fermentum. Vivamus at venenatis dui. Integer sed pharetra ex. Vivamus vel dictum velit. Phasellus sodales dui augue, vitae interdum nulla malesuada sed. Proin tincidunt blandit elit, a efficitur enim laoreet et. In hac habitasse platea dictumst. Phasellus id lacus eget tellus placerat ornare ut eget leo. Fusce gravida tincidunt dui, in malesuada metus pharetra vel. Etiam nec ligula euismod, vestibulum ligula eu, sagittis nulla.
+
+'},
+  {
+    user_id: 2,
+    post_id: 3,
+    content: 'Donec dapibus auctor tortor, quis maximus justo blandit at. Nullam finibus arcu at felis scelerisque fermentum. Vivamus at venenatis dui. Integer sed pharetra ex. Vivamus vel dictum velit. Phasellus sodales dui augue, vitae interdum nulla malesuada sed. Proin tincidunt blandit elit, a efficitur enim laoreet et. In hac habitasse platea dictumst. Phasellus id lacus eget tellus placerat ornare ut eget leo. Fusce gravida tincidunt dui, in malesuada metus pharetra vel. Etiam nec ligula euismod, vestibulum ligula eu, sagittis nulla.
+
+'
+  },
+  {
+    user_id: 1,
+    post_id: 4,
+    content: 'Donec dapibus auctor tortor, quis maximus justo blandit at. Nullam finibus arcu at felis scelerisque fermentum. Vivamus at venenatis dui. Integer sed pharetra ex. Vivamus vel dictum velit. Phasellus sodales dui augue, vitae interdum nulla malesuada sed. Proin tincidunt blandit elit, a efficitur enim laoreet et. In hac habitasse platea dictumst. Phasellus id lacus eget tellus placerat ornare ut eget leo. Fusce gravida tincidunt dui, in malesuada metus pharetra vel. Etiam nec ligula euismod, vestibulum ligula eu, sagittis nulla.
+
+'
+  },
+  {
+    user_id: 2,
+    post_id: 1,
+    content: 'Donec dapibus auctor tortor, quis maximus justo blandit at. Nullam finibus arcu at felis scelerisque fermentum. Vivamus at venenatis dui. Integer sed pharetra ex. Vivamus vel dictum velit. Phasellus sodales dui augue, vitae interdum nulla malesuada sed. Proin tincidunt blandit elit, a efficitur enim laoreet et. In hac habitasse platea dictumst. Phasellus id lacus eget tellus placerat ornare ut eget leo. Fusce gravida tincidunt dui, in malesuada metus pharetra vel. Etiam nec ligula euismod, vestibulum ligula eu, sagittis nulla.
+
+'
+  }
+]
 #users.each do |user|
 #  User.create!(user)
 #end
-posts.each do |post|
-  Post.create!(post)
+#posts.each do |post|
+#  Post.create!(post)
+#end
+comments.each do |comment|
+  Comment.create!(comment)
 end

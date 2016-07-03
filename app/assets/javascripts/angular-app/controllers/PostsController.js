@@ -12,22 +12,6 @@ function PostsController(PostService, Auth) {
 
   PostService.getAllPosts().then(function(resp) {
     ctrl.posts = resp.data
-    console.log('DONE')
   })
-
-  ctrl.createPost = function(myForm) {
-    console.log('HELLO')
-    console.log(myForm)
-    if (myForm.$valid) {
-      console.log(ctrl.user)
-      ctrl.post.user_id = ctrl.user.id;
-      console.log("USER ID: " + ctrl.user.id)
-      console.log(ctrl.post);
-      PostService.createPost(ctrl.post).then(function(resp) {
-      }, function(error) {
-        console.log("ERROR OCCURRED");
-      });
-    }
-  }
 
 }

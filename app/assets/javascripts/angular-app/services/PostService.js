@@ -8,6 +8,10 @@ function PostService($http) {
     return $http.post('/api/v1/posts', post_json)
   }
 
+  ctrl.getPost = function(id) {
+    return $http.get('/api/v1/posts/' + id)
+  }
+
 }
 
 angular

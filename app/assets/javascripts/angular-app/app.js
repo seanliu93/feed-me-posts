@@ -48,7 +48,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/new_post',
       parent: 'home',
       templateUrl: 'posts/new.html',
-      controller: 'PostsController as ctrl'
+      controller: 'NewPostController as ctrl'
+    })
+    .state('home.show_post', {
+      url: '/show_post/:id',
+      parent: 'home',
+      templateUrl: 'posts/show.html',
+      controller: 'ShowPostController as ctrl'
     })
     .state('profile', {
       url: '/profile',
