@@ -1,7 +1,13 @@
 function PostService($http) {
- this.getAllPosts = function() {
-   return $http.get('/api/v1/posts.json');
- };
+  var ctrl = this;
+  ctrl.getAllPosts = function() {
+   return $http.get('/api/v1/posts');
+  };
+
+  ctrl.createPost = function(post_json) {
+    return $http.post('/api/v1/posts', post_json)
+  }
+
 }
 
 angular

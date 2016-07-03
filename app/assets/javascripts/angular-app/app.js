@@ -8,7 +8,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'LoginController as ctrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function() {
-          $state.go('home')
+          $state.go('home.posts')
         });
       }]
     })
@@ -18,7 +18,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'LoginController as ctrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function() {
-          $state.go('home')
+          $state.go('home.posts')
         });
       }]
     })
@@ -36,12 +36,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'home.html',
-      controller: 'HomeController as ctrl',
-      resolve: {
-        posts: function (PostService) {
-          return PostService.getAllPosts();
-        }
-      }
+      controller: 'HomeController as ctrl'
+    })
+    .state('home.posts', {
+      url: '/posts',
+      parent: 'home',
+      templateUrl: 'posts/index.html',
+      controller: 'PostsController as ctrl'
+    })
+    .state('home.new_post', {
+      url: '/new_post',
+      parent: 'home',
+      templateUrl: 'posts/new.html',
+      controller: 'PostsController as ctrl'
     })
     .state('profile', {
       url: '/profile',

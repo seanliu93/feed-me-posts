@@ -17,3 +17,17 @@
 .error {
   color: red;
 }
+
+.margins {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+textarea {
+  width:100%;
+  height:100%; 
+  box-sizing: border-box;         /* For IE and modern versions of Chrome */
+  -moz-box-sizing: border-box;    /* For Firefox                          */
+  -webkit-box-sizing: border-box; /* For Safari                           */
+}
