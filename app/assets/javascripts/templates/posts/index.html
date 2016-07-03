@@ -1,4 +1,5 @@
-<div ng-repeat="post in ctrl.posts">
+<input class="form-control" ng-model="ctrl.search" placeholder="Search or Filter Posts..." style="float: right;"/>
+<div ng-repeat="post in ctrl.posts | filter: ctrl.search">
   <post data='post'></post>
   <a href="#" ui-sref="home.show_post({id: post.id})">View Comments</a>
 </div>
