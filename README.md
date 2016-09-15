@@ -19,5 +19,5 @@ Fork it. Create a feature branch, commit changes, push to the branch, then creat
 
 ## License
 
-This is available as open source under the terms of the MIT License (opensource.org/licenses/MIT).
+This is available as open source under the terms of the [MIT License](opensource.org/licenses/MIT).
 
